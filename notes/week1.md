@@ -8,7 +8,7 @@
 
 ### Tools
 - **Git**
-    - make SSH keys to better authentication
+    - [ ] make SSH keys to better authentication
 
 - **Diagraming Tools**
     - use **https://www.diagrams.net**
