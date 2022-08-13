@@ -64,7 +64,7 @@ that the cumulative service **outage period** does **not exceed a required value
         - Reconfiguration : reassigning responsibilities
     - ***Reintroduction***
         - Shadow : operating a previously failed or in-service upgraded component in a "shadow mode"
-        - State Resynchronization
+        - State Resynchronization : use with Redundancy tactics to keep updating the standby components
         - Escalating Restart : Leveling the restart
         - Non-stop forwarding (eg. router)
             - Control plane
@@ -77,4 +77,27 @@ that the cumulative service **outage period** does **not exceed a required value
     - Increase Competence Set : designing a component to handle more cases-faults-etc.
 
 ### Integrability
+- software archiect need to be concerned with the cost and the risk of an integration tasks
+- **Sample Intetgrability Scenario**
+    - **Component Marketplace** -> [**New data filtering component become available**] -> **System (Development)** -> [**The new component is integrated and deployed**] -> **time period**
+
+### Tactics for Integrability
+- **Limit Dependencies**
+  - Encapsulate : make an explicit interface to an elemnt and ensures that all
+  access to the element must pass through this interface (just like in OOP)
+  - Use an intermediary :
+  - Restrtict Communication Paths : restricting and element's visibility
+  - Adhere to Standards : syntax
+  - Abstract Common Services :
+- **Adapt**
+  - Discover :
+  - Trailor Interface :
+  - Configure Behavior : behavior of a component can be config during the build phase
+- **Coordinate**
+  - Orchestrate : centralizing those dependencies at the orchestration mechanism
+  - Manage Resources : software component are not allowed to directly access some computing resources
+  but instead request those resources from a resources manager
+
+### LAB notes
+- Supervisord : client/server system that allows its users to monitor and control a number of processes on UNIX-like system
 
