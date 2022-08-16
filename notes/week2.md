@@ -120,6 +120,11 @@ availability ของ DBServer x 2 : (1-(1-0.95)^2) = 0.9975
 State Re-synchronization เกิดขึ้นในกรณีที่ทำการ primary/replicas replication เนื่องจากจะเป็นการ update ให้ replicas มีข้อมูลที่เป็นปัจจุบันมากที่สุดอยู่ ในกรณีนี้ก็จะเป็นการใช้ Global Transaction ID (GTID)
 Removal from Service จะเป็นการเกิดขึ้นในตอนที่ primary node นั้นเกิดข้อผิดพลาด ทำให้จะมีการนำตัว primary node นั้นออกจากการให้บริการแล้วนำตัว standby database มาเป็น primary node แทน จะเรียกกระบวนการนี้ว่า automatic failover
 8.
+  - J2EE
+  - Google Cloud
+  - Apache Camel ใช้สำหรับการจัดการ message ระหว่าง component
+  - AWS สามารถใช้สำหรับการทำ shared database
+  - REST สำหรับการทำ RPI (Remote Procedure Invocation)
 9. OSGi หรือ Open Services Gateway Initiative คือมาตรฐานสำหรับ computer software โดยจะมุ่งเน้นไปในด้านการทำ Module System ของภาษา Java โดยถ้าหากมีการนำมาตรฐาน OSGi มาประยุกต์ใช้ก็จะเป็นการส่งเสริม Quality Attribute ในด้าน Integrability เนื่องจากมาตรฐาน OSGi จะ
   1. ส่งเสริมให้แต่ละ dependency นั้นมีการบ่งบอกถึงความสามารถและความต้องการของตัวมันเองได้ ซึ่งจะเป็น tactics ของ Integrability ในด้าน Adapt ก็คือจะทำให้ Third Party ที่จะเข้ามาทำงานหรือจะ Integrate ต่างๆเข้าใจได้ง่ายขึ้น มีความง่ายต่อการเปลี่ยนแปลง เพราะเราจะสามารถรู้ว่าแต่ละ Dependency มีความสามารถอะไรบ้างและต้องการอะไรบ้าง หากเราจะต้องการหาตัวแทน Dependency นั้นๆก็จะสามารถทำได้ง่าย
   2. จะเป็นการส่งเสริม Integrability ในด้าน tactics ของการ Adhere to standards เพราะว่า OSGi เป็นมาตรฐานที่ต้องมีการบังคับให้ทำตาม ซี่งก็จะส่งผลดีต่อความ Integrability เนื่องจากจะทำให้ Dependency นั้นไปในทางเดียวกัน จะไม่มีความสับสน
