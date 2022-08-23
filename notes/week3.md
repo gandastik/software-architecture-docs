@@ -35,7 +35,7 @@ then implement the change to the configuration file = cost of **making the modif
   - Use an intermediary : eg. Service Discover (Last Week topic)
   - Abstract common services : make module -> abstrct if its almost the same
   - Restrict dependencies : restric the modules which a given module interacts with or depends on
-- **Defer Binding** : ***the later in the life cycle we can bind values***
+- **Defer Binding** : ***the later in the life cycle we can bind values, the better***
   - can be used to bine values at **compile time**
     - Component replacement :
     - Compile-time parameterization
@@ -149,3 +149,20 @@ then implement the change to the configuration file = cost of **making the modif
   - Maintain user model : explicitly represents the users's knowledge of the system
   - Maintain system model : the system maintains an explicit model of itself. eg. progress bar that predicts the time needed to complete the current activity
 
+### LAB Quality Attribute II
+1. Binding Time - Chapter 4. From the book
+  - Compilation Time : เป็นแนวคิดการทำ Binding Time ณ เวลา compile ของโปรแกรม ยกตัวอย่างเช่นการทำ compiler flags เพื่อที่จะเป็นการตั้งค่าพฤติกรรมการทำงานของ program ในช่วงที่ทำการ compile program นั้นๆ หรือไม่ว่าจะเป็นการทำ code sections เพื่อที่จะตั้งค่าว่าถ้าเกิดกรณีนี้โค้ดส่วนไหนจะทำงาน
+  - Link and Assembly Time : ในช่วง build (link) ตัวแปรต่างๆก็จะทำให้เชื่อมโยง dependencies กับระหว่าง modules ในก่อนที่จะทำการ execution และไฟล์จะถูกเชื่อมโยงกันเป็น ไฟล์ที่สามารถถูก execute ได้ โดยตัวอย่างกลไกการทำงานก็จะยกตัวอย่างได้จาก Makefile ซึ่งจะเป็นตัวที่จัดหาลำดับที่ต้องการในการเชื่อมต่อไฟล์กันให้ไปเป็น static libraries ซึ่งก็จะสามารถมีการตั้งค่าได้ในช่วงนี้ว่าจะให้ paramenter ไหนเป็นทางเลือกในการเชื่อมต่อไฟล์กัน ในการ defer binding ในช่วง Assembly time ก็จะเป็นช่วงที่ product นั้นจะนำมา integrate กันซึ่งส่วนมากจะอยู่ท้ายสุดของกระบวนการผลิตซอฟต์แวร์ ซึ่งก็จะสามารถเขียน script เพื่อที่จะทำการสร้างไฟล์หรือจะเป็นการที่จะเพิ่มฟังก์ชันการทำงานหรือเพื่ม feature ซึ่งในช่วง assembly time ตัวของ software engineer ก็เป็นคนที่ตัดสินใจว่า functionality ไหนจะถูกเพิ่มหรือลบออก เพื่อก่อนที่จะไปเป็นผลิตภัณฑ์เวอร์ชั่นจริงๆที่สามารถจับต้องได้
+  - Configuration and Deployment time : ในช่วง configuration time ตัวแปรการตั้งค่าต่างๆของระบบซอฟต์แวร์จะถูก ตั้งค่า ก่อนที่จะเไปถึง execution time โดยโปรแกรมนั้นสามารถอ่านไฟล์ configuration ด้วยค่าตัวแปรการตั้งค่านั้นๆโดยที่ไม่มีมนุษย์เข้าไปยุ่งเกียวหรือเซ็ตค่าต่างๆ ยกตัวอย่างเช่น ก็จะมีเครื่องมือสำหรับการตั้งค่าซอฟต์แวร์ในช่วงก่อนที่จะเกิดการ deployed หรือไม่ว่าจะเป็นการใช้ scripts ในการทำ configuration แบบอัตโนมัติ และในช่วง deployment time ตัวแปรบางตัวก็ยังจำเป็นที่จะต้องมีการเลือกค่าก่อนที่จะถูกไป execute ยกตัวอย่างเช่นในกรณีมี application แบบ distributed ซึ่งอาจจะจำเป็นต้องมีการตั้งค่า IP สำหรับเซิฟเวอร์หรือโฮสปลายทางก่อน ก็อาจจะมีกร
+  - Start-up and Runtime : การตั้งค่าตัวแปรต่างๆในช่วงเวลา Runtime นั้นนับว่าเป็นการทำ defer binding ที่มีความยีดหยุ่นมากที่สุด โดยอาจจะทำได้ในหลายวิธีทาง หนึ่งในการทำก็คือการใช้ dynamic files หรือ libraries ที่ค่าตัวแปรต่างๆสามารถรับค่าไปได้ ตัวอย่างเช่น Apache server ที่ซัพพอร์ตการทำ dynamic loading สำหรับ modules ต่างๆ
+2. Open-Source Software : SQLite (Compile Options- SQLITE_DEFAULT_AUTOMATIC_INDEX สามารถถูก defer binding time ไปยังช่วง run time ได้ ซึ่งจะทำให้การทำงานของ software จะมีความหยืดหยุ่น flexibility ขึ้น สามารถเลือกได้ว่าการทำงาน query แบบไหนเหมาะกับการมี automatic index หรือไม่ ถ้าหากเรารู้ว่าถ้าเกิดการเรียก query แบบหนึ่งที่จะทำให้เกิดการ lookup มากกว่า logN ครั้งการตั้งค่าเพื่อให้มีการ automatic index ก็จะทำให้การทำงานมีความเร็วมากขึ้น เช่นเดียวกันถ้าหากมีการเรียก query ที่จะมีการ lookup ที่ไม่เกิน logN ครั้งก็ไม่จำเป็นต้องใช้ automatic index การที่ defer binding time ก็จะก่อให้เกิดผลประโยชน์
+  - SQLITE_DEFAULT_AUTOVACUUM สามารถถูก defer binding time ออกไปได้ และจะส่งผลให้เกิดผลดีในด้านความ flexibility ของ software เพราะว่าสามารถปรับได้ว่าจะให้มีการลดขนาดไฟล์ของ database ทุกๆครั้งที่มีการทำ commit transaction เลยหรืออาจจะเปลี่ยนโหมดก็ได้ แต่ก็จะมีปัญหาที่ตามมาก็คือการที่จะต้องมีการใช้คำสั่ง VACUUM ทุกครั้งเพราะว่าจะเป็นการจัดเรียงไฟล์ database ใหม่เพื่อให้เหมาะสมกับโหมดนั้นๆ จึงอาจจะทำให้เกิดความล่าช้าหรือการทำงานซ้ำๆไปมา เพื่อที่จะตอบสนองการเปลี่ยนโหมด autovacuum ของ database
+  - SQLITE_DEFAULT_CACHE_SIZE สามารถถูก defer binding time ออกไปได้ และจะทำให้มีผลดีก็คือการที่จะมีความสาามารถในการ modify ได้และมีความ flexibility ต่อการเปลี่ยนแปลงค่า cache size ได้เมื่อต้องการในช่วงเวลา runtime แต่ก็ยังมีข้อเสียอยู่ตรงที่ค่าที่เปลี่ยนแปลงจะอยู่ได้แค่ session ปัจจุบันเท่านั้น ถ้าเกิดการปิด หรือเปิดใหม่ของ database ก็จะกลับกลายเป็นค่า default เหมือนเดิม
+  - SQLITE_DEFAULT_FILE_FORMAT ถูก defer binding time ได้ แต่จะส่งผลให้เกิดข้อดีและข้อเสียมาตามลำดับดังนี้ ข้อดีคือจะเพิ่มความสามารถในการเปลี่ยน file format ได้ และแต่ละ format ก็จะมีความเหมาะสมต่อแต่ละข้อมูลต่างกันไป แต่ข้อเสียก็คือความ backward compatibility เพราะว่าถ้าหากใช้ SQLite เวอร์ชั่นที่เก่ากว่า 3.3.0 ก็จะไม่สามารถใช้งานได้)
+3. Apache JMeter
+  ![graph results](../63010035.png)
+4. what can you tell in the graph results?
+  - No of Samples (สีดำ) : คือจำนวนทั้งหมดของ samples ที่ได้ส่งไป
+  - Average (สีน้ำเงิน) : คือจำนวนเฉลี่ยของ samples ทั้งหมดที่ส่งไป
+  - Deviation (สีแดง) : คือค่าเบี่ยงเบนมาตรฐาน ถ้าค่ายิ่งน้อยยิ่งบ่งบอกถึงประสิทธิภาพที่สูงของเซิฟเวอร์นั้นๆได้
+  - Throughput (สีเขียว) : คือค่า Throughput ที่บ่งบอกถึงจำนวน request ต่อนาที ที่ server สามารถรับได้ จะตีความได้ถึงความสามารถที่เซิฟเวอร์สามารถรองรับ load ได้ถ้าค่ายิ่งสูงหมายความว่าประสิทธิภาพของเซิฟเวอร์ก็ยิ่งสูง
