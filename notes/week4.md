@@ -79,3 +79,4 @@ Domain-Drive Design is an approach to the development of complex software in whi
 1. Focus on the core ***domain***
 2. Explore ***models*** in a creative collaboration of domain practitioners and software practitioners
 3. Speak a ***Ubiquitous language*** within an explicitly ***bounded context***
+by katy
