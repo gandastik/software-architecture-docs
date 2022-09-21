@@ -108,3 +108,15 @@
 - **assembled object or aggregate** -> ทำให้คนที่มาเรียกใช้สามารถใช้ได้เลย
 - Therefore:
   - ห่อหุ้มกระบวนการการสร้างที่มันซับซ้อน
+
+## Off the record
+### What are Aggregates
+- Is Not:
+  - graph of entities
+  - behaviour rich object
+  - entity or collection of entitis that you can dump into your database tables
+- Is:
+  - about managing consistency boundaries
+- **Bubbles** : software project was not one massive codebase - but a collection of small bubbles. Each bubble can be worked on
+  independently "you only need to think about what's in the buble at any given moment"
+
