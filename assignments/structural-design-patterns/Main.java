@@ -1,6 +1,10 @@
 // Please DO NOT MODIFY THIS FILE
-package edu.parinya.softarchdesign.structural;
 
+// needed to import these for it to work on my pc ;w;
+import edu.parinya.softarchdesign.structural.Anesthesiologist;
+import edu.parinya.softarchdesign.structural.Cardiologist;
+import edu.parinya.softarchdesign.structural.Nurse;
+import edu.parinya.softarchdesign.structural.Surgeon;
 
 public class Main {
 
