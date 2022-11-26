@@ -13,7 +13,9 @@
 - แนะนำบริษัท
   - Agoda
   - Refinitiv (Thompson's Reutuer)
- ##  Design Patterns ### What ?
+  
+##  Design Patterns 
+### What ?
 - a general, resuable solution to a commonly occurring problem in the context of modular software design.
 - ตามเดิมแล้วมาจาก **ด้านสถาปัตยกรรม**
 - in 94s, concept of software design patterns for object-oriented software was published by "the Gang of Four"
