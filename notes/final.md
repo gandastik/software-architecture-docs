@@ -113,12 +113,12 @@
 ![](https://media.discordapp.net/attachments/1014398974649708624/1029617771941732352/unknown.png)
 
 ### The Open-Closed Principle
-- "Software entities(classes, modules, functions, etc.) should be open for extension but closed for modification"
+- **"Software entities(classes, modules, functions, etc.) should be open for extension but closed for modification"**
 - ง่ายๆคือ behavior ของ software entity ควรที่จะสามารถต่อยอดออกไปได้ โดยที่ไม่ต้องไปเปลี่ยนแปลง entity นั้นๆ
 - arguably the most important
 
 ### The Liskov Substitution Principle
-- **"Subtype Requirement: Let o(x) be a property porvable about objects x for type T. Then o(y) should be true for objects y for type S where S is a subtype of T"
+- **"Subtype Requirement: Let o(x) be a property porvable about objects x for type T. Then o(y) should be true for objects y for type S where S is a subtype of T"**
 - ง่ายๆคือ subclasses ควรที่จะสามารถใช้แทนกันได้ระหว่าง base classes ของมัน
 
 #### Bad Example: LSP Violation
