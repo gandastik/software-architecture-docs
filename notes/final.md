@@ -26,7 +26,7 @@
   - อธิบายถึง functionality of the system ซึ่งจะถูก model จากมุมมองของ user และ/หรือจากคนภายนอก
   - UML -> **Use-case Diagram**
 
-  ## Object Oriented Programming
+## Object Oriented Programming
  -  code of one program is divided into smaller part called **objects**
  - object typically contains both its data(state) and operations(behavior)
  - the **access** to members of one object can be controlled by the definitions of an object itself
@@ -104,7 +104,7 @@
 	- mid-level = developers working at the modules level
 
 ### Single-Responsibilty Principle (SRP)
-- **"A module should be responsible to one, and only one, actor"
+- **"A module should be responsible to one, and only one, actor"**
 - ควรจะมีเหตุผลเดียวๆ เท่านั้นที่ควรจะมาแก้โค้ดส่วนๆนั้น
 
 #### Bad Example: SRP Violation
@@ -156,7 +156,7 @@
 ### Benefits & Limitations
 - **Benefits**
 	- Design reuse
-	- Uniform design vocabulary 
+	- Uniform design vocabulary
 	- Enhance understanding, restructuring, & team communication
 	- Basic for automation: design patterns -> standards -> testability
 - **Limitations**
@@ -215,7 +215,7 @@
 	- intent to sepearate the construction of a complex object from its representation so that the same construction process can create different representation
 	- encapsulate creating and assembling the parts of a complex object in a seperate Builder object
 	- a class delegates object to a Builder object instead of creating the objects directly
-![](https://media.discordapp.net/attachments/1014398974649708624/1046265556266917909/image.png?width=1312&height=685)  
+![](https://media.discordapp.net/attachments/1014398974649708624/1046265556266917909/image.png?width=1312&height=685)
 - **Consequences**
 	- (+) can vary a product's internal representation
 	- (+) isolates code for construction & representation
@@ -290,12 +290,12 @@
 	- a system is very copmlex or difficult to understand
 	- an entry point is needed to each level of layered software
 	- the abstraction and implementation of a subsystem are tightly coupled
-- **Solution**: 
-	- *intent* to provide unified interface to a set of interfaces in a subsytem 
-	
+- **Solution**:
+	- *intent* to provide unified interface to a set of interfaces in a subsytem
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1034658575282356224/unknown.png?width=1301&height=685)
 
-- **Consequences**: 
+- **Consequences**:
 	- (+) client code can be isolated from the complexity of a subsystem
 	- (-) Facade can become ***god object*** coupled to all classes of an app
 
@@ -333,7 +333,7 @@
 	- ***intent*** to attach additional responsibilties to an object dynamically
 	- define decorator objects that implement the interface of the extended (decorated) object (component) transparently by forwarding all request to it
 	- such decorator objects may perform additional functionality before/after forwarding a request
-	
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1034680044569759774/unknown.png?width=1051&height=685)
 - **Consequences**:
 	- (+) Add or remove responsibilities from an object at runtime
@@ -352,7 +352,7 @@
 	- ***intent*** to provide a surrogate or placeholder for another object to control access to it
 	- define a seperate proxy object that can be used as subtitute for another object
 	- such a proxy object implements additional functionality to control the access to this subject
-	
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1034687932386254898/unknown.png?width=1306&height=685)
 
 - **Consequences**:
@@ -391,7 +391,7 @@
 - **Soluiton**:
 	- intent to define a family of algorithms, encapsulates each one & make them interchangable to let clients & algorithms vary independently
 		- เป็นการนิยามให้มีหลากหลายอัลกอ โดยที่จะ encap แต่ละตัวแล้วทำให้มันใช้เปลี่ยนแปลงกันได้
-		
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1037192709850533928/unknown.png?width=1268&height=685)
 
 - **Consequences**:
@@ -401,7 +401,7 @@
 	- (-) inflexible strategy interface
 	- (-) semantic incompatibility of multiple strategies used together
 		- คำที่ใช้มีความหมายใช้เข้ากันไม่ค่อยได้
-		
+
 ### Observer
 - "รอฟัง" aka **Event-Subscriber, Listener**
 - **Problems**:
@@ -441,7 +441,7 @@
 	- intent to encapsulate the request for a service
 	- define seperate (command) objects that encapsulate a request
 	- a class delegates a request to a command object instead of implementing a particular request directly
-	
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1037213738039779348/unknown.png?width=1383&height=684)
 
 - **Consequences**:
@@ -492,7 +492,7 @@
 - **Consequences**:
 	- (+) Flexibility: aggregate & traversal are independent
 	- (+) Support multiple iterators & multiple traversal algorithms
-	- (-) Incur additional communication overhead between iterator & aggregate 
+	- (-) Incur additional communication overhead between iterator & aggregate
 	- (-) problematics in distributed systems
 
 ### Null Object
@@ -511,7 +511,7 @@
 		- สร้าง obj ขึ้นมาแทนที่ โดยที่ใน obj นั้นไม่ได้ทำอะไรเลย
 	- the use of a Null Object, an object with no referenced value or with defined neutral ("null") behavior
 	- the behavior (or lack thereof) of such objects
-	
+
 ![](https://media.discordapp.net/attachments/1014398974649708624/1037232576928165928/unknown.png?width=1328&height=685)
 
 - **Consequences**:
