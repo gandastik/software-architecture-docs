@@ -188,7 +188,7 @@
 	- ลด coupling 𛱠
 
 ### Abstract Factory
-**Problem**
+- **Problem**
 	- How can an application be independent of how its objects are created?
 	- How can a class be independent of how the objects it requires are created?
 	- How can families of related or dependent objects be created?
